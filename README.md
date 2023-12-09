@@ -1,5 +1,6 @@
 # no terminal
 git init
+
 git clone https://github.com/juliaorlandi/server.git
 
 # arquivo db
