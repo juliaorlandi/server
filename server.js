@@ -6,7 +6,7 @@ const alunoRoutes = require('./routes/alunoRoutes');
 const app = express()
 const port = 8000;
 app.use (bodyParser.json())
-app.use(cors);
+app.use(cors());
 app.use('/alunos', alunoRoutes);
 
 app.listen(port, () => {
