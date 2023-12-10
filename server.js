@@ -7,6 +7,8 @@ const app = express()
 const port = 8000;
 app.use (bodyParser.json())
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 app.use('/alunos', alunoRoutes);
 
 app.listen(port, () => {

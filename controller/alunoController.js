@@ -64,16 +64,19 @@ class alunoController {
     async deleteAluno(req, res) {
         try {
             const alunoId = req.params.id;
-            const result = connection.query('DELETE FROM alunos WHERE id=?', [alunoId]);
-            
-            res.json ({success:true});
-
+            const result = connection.query('DELETE FROM alunos WHERE id=?', [
+                alunoId
+            ]);
+            if (result.affectedRows > 0) {
+                res.json({ success: true });
+            } else {
+                res.status(404).json({ error: 'Aluno não encontrado.' })
+            };
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Erro ao carregar dados.' });
         }
     }
-
     
 }
 

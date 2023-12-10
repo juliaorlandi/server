@@ -16,8 +16,8 @@ router.get('/:id',alunoController.getAlunoById, (req,res) => {
 
 router.post('/',alunoController.criaAluno, (req,res) => {
     const newAluno = req.body;
-    const resposta = alunoController.criaAluno(newAluno);
-    res.send(resposta);
+    const aluno = alunoController.criaAluno(newAluno);
+    aluno.then(alunoCriado => res.status(201).json(alunoCriado)).catch(error => res.status(404).json(error.message));
 });
 
 router.put('/:id',alunoController.editaAluno, (req,res) => {  
