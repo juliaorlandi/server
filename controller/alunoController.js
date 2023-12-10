@@ -6,7 +6,7 @@ class alunoController {
         try {
             const [rows] = await connection.query('SELECT * FROM alunos');
             const alunos = rows.map(row => new alunoModel(row));
-            res.json(users);
+            res.json(alunos);
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Erro ao carregar dados.' });
